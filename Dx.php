@@ -2,8 +2,7 @@
 /**
 * @package Dx Framework
 * @author Davidix
-* @copyright Copyright (c) 2010 - 2017 Davidix
-
+* @copyright Copyright (c) 2010 - 2020 Davidix
 */
 
 //no direct accees
