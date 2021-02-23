@@ -1104,6 +1104,7 @@ class Dx
 		$query = "DESC $table";
 		$db -> setQuery($query);
 		$rows = $db -> loadAssocList();
+		//check for test results
 		/*
 		for ($i = 0; $i < count($rows); $i++) {
 			$row = &$rows[$i];
@@ -1126,6 +1127,7 @@ class Dx
 		$query = "SELECT * FROM $table";
 		$db -> setQuery($query);
 		$rows = $db -> loadAssocList();
+		//check for test results
 		/*
 		for ($i = 0; $i < count($rows); $i++) {
 			$row = &$rows[$i];
@@ -1350,8 +1352,6 @@ class Dx
 	public static function foo(){
 
 		$db = JFactory::getDbo();
-		
-
 		try
 		{
 			//$db->transactionStart();
