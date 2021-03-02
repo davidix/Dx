@@ -1359,12 +1359,8 @@ class Dx
 		$db = JFactory::getDbo();
 		try
 		{
-			//$db->transactionStart();
-			
 			$query = $db->getQuery(true);
-			
 			$values = array($db->quote('TEST_CONSTANT'), $db->quote('Custom'), $db->quote('/path/to/translation.ini'));
-			
 			$query->insert($db->quoteName('#__overridera'));
 			$query->columns($db->quoteName(array('constant', 'string', 'file')));
 			$query->values(implode(',',$values));
