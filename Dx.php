@@ -267,6 +267,11 @@ class Dx
 		return ($doc->countModules($position) or self::hasFeature($position));
 	}
 
+	public static function loadModulePos($module)
+    {
+		echo JHtml::_('content.prepare','{loadposition   '.$module.'}');
+    }
+
 	/**
 	* Has feature
 	*
@@ -1376,7 +1381,4 @@ class Dx
 			JErrorPage::render($e);
 		}
 	}
-
-	
-
 }
