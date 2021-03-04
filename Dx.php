@@ -608,7 +608,7 @@ class Dx
 		{
 			echo '<pre>';
 			print_r($obj);
-			echo '</pre><hr />';
+			echo '</pre><hr/>';
 		}
 	}
 
