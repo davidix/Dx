@@ -1353,7 +1353,7 @@ class Dx
 		else return '#';
 	
 	}
-
+/*
 	public static function foo(){
 
 		$db = JFactory::getDbo();
@@ -1376,5 +1376,5 @@ class Dx
 			//$db->transactionRollback();
 			JErrorPage::render($e);
 		}
-	}
+	}*/
 }
