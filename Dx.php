@@ -35,10 +35,7 @@ class Dx
 	{
 	}
 
-	/**
-	* making self object for singleton method
-	*
-	*/
+	//making self object for singleton method
 	final public static function getInstance()
 	{
 		if (!self::$_instance)
