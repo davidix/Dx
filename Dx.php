@@ -1376,7 +1376,6 @@ class Dx
 
 
 	/**********      
-	 * 
 	 * Not sure about this functions
 	 * ***************/
 	//generate json for reports calendar
