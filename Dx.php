@@ -1287,7 +1287,7 @@ class Dx
 			 <img alt="'. $value['alt'].'"
 			 src="'.$value['src'].'"
 			 data-image="'.$baseurl.$value['src'].'"
-			 data-description="'.$value['description'].'">
+			 data-description="'.$value['description'].'"/>
 			';			
 		}
 		echo $res;
