@@ -1376,7 +1376,6 @@ class Dx
 
 
 	/**********      
-	 * 
 	 * Not sure about this functions
 	 * ***************/
 	//generate json for reports calendar
@@ -1391,23 +1390,5 @@ class Dx
 		}
 		echo $res;
 	}
-	
-	//generate json for gallery
-	public static function GalleryJson($string)
-	{
-		$baseurl = JUri::base();
-		$obj = json_decode($string,true);
-		$res="";	
-		if (is_array($obj) || is_object($obj))
-		foreach($obj as $key => $value) 
-		{			
-			$res .= '
-			 <img alt="'. $value['alt'].'"
-			 src="'.$value['src'].'"
-			 data-image="'.$baseurl.$value['src'].'"
-			 data-description="'.$value['description'].'">
-			';			
-		}
-		echo $res;
-	}	
+		
 }
