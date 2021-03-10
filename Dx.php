@@ -1390,5 +1390,56 @@ class Dx
 		}
 		echo $res;
 	}
+
+
+	private function d($data){
+		
+		if(is_null($data)){
+			$str = "<i>NULL</i>";
+		}elseif($data == ""){
+			$str = "<i>Empty</i>";
+		}elseif(is_array($data)){
+			if(count($data) == 0){
+				$str = "<i>Empty array.</i>";
+			}else{
+				$str = "<table class=\"table table-hover table-striped\" style=\"border-bottom:0px solid #000;\" cellpadding=\"0\" cellspacing=\"0\"><td  colspan=\"3\">"
+				.gettype($data)."</td>";
+				$str .= "";
+				foreach ($data as $key => $value) {
+					$str .= "<tr><td style=\"border:1px solid #000;\">". $key 
+					. "</td><td style=\"border:1px solid #000;\">" . d($value) . "</td>"
+					. "</td><td style=\"border:1px solid #000;\">" . gettype($value) . "</td></tr>";
+				}
+				$str .= "</table>";
+			}
+		}elseif(is_resource($data)){
+			while($arr = mysql_fetch_array($data)){
+				$data_array[] = $arr;
+			}
+			$str = d($data_array);
+		}elseif(is_object($data)){
+			$str = d(get_object_vars($data));
+		}elseif(is_bool($data)){
+			$str = "<i>" . ($data ? "True" : "False") . "</i>";
+		}else{
+			$str = $data;
+			$str = preg_replace("/\n/", "<br>\n", $str);
+		}
+		return $str;
+	}
+	
+	public static function dnl($data){		
+		echo d($data) . "<br>\n";
+	}
+	
+	public static function dd($data){
+		//echo var_export($data);
+		echo dnl($data);
+		exit;
+	}
+	
+	public static function ddt($message = ""){
+		echo "[" . date("Y/m/d H:i:s") . "]" . $message . "<br>\n";
+	}
 		
 }
