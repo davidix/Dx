@@ -1392,7 +1392,7 @@ class Dx
 	}
 
 
-	private function d($data){
+	private static function d($data){
 		
 		if(is_null($data)){
 			$str = "<i>NULL</i>";
@@ -1407,7 +1407,7 @@ class Dx
 				$str .= "";
 				foreach ($data as $key => $value) {
 					$str .= "<tr><td style=\"border:1px solid #000;\">". $key 
-					. "</td><td style=\"border:1px solid #000;\">" . d($value) . "</td>"
+					. "</td><td style=\"border:1px solid #000;\">" . self::d($value) . "</td>"
 					. "</td><td style=\"border:1px solid #000;\">" . gettype($value) . "</td></tr>";
 				}
 				$str .= "</table>";
@@ -1416,9 +1416,9 @@ class Dx
 			while($arr = mysql_fetch_array($data)){
 				$data_array[] = $arr;
 			}
-			$str = d($data_array);
+			$str = self::d($data_array);
 		}elseif(is_object($data)){
-			$str = d(get_object_vars($data));
+			$str = self::d(get_object_vars($data));
 		}elseif(is_bool($data)){
 			$str = "<i>" . ($data ? "True" : "False") . "</i>";
 		}else{
@@ -1429,12 +1429,12 @@ class Dx
 	}
 	
 	public static function dnl($data){		
-		echo d($data) . "<br>\n";
+		echo self::d($data) . "<br>\n";
 	}
 	
 	public static function dd($data){
 		//echo var_export($data);
-		echo dnl($data);
+		echo self::dnl($data);
 		exit;
 	}
 	
