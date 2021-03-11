@@ -1350,7 +1350,7 @@ class Dx
 	
 	}
 /*
-	public static function foo(){
+	public static function test_Transaction(){
 
 		$db = JFactory::getDbo();
 		try
