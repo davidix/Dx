@@ -1139,9 +1139,6 @@ class Dx
 		*/
 		return $rows;
 	}
-
-
-	
 	public static function getXbyID($tbl, $conds = null, $list=true, $getCount=false, $db = null)
 	{
 		if (!isset($db)) {
