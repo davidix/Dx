@@ -1440,5 +1440,26 @@ class Dx
 	public static function ddt($message = ""){
 		echo "[" . date("Y/m/d H:i:s") . "]" . $message . "<br>\n";
 	}
+
+/*
+
+
+				$object = json_decode($this->params->get('search_replace'), true);
+			$res=[];
+			$i=0;
+			$j=0;
+
+
+
+			foreach($object as $key => $items)
+			{
+				foreach($items as $item => $val)
+				{
+					$res[$item][$key]=$val;
+					
+				}
+			}
+			die(json_encode(($res)));
+			*/
 		
 }
