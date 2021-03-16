@@ -1432,7 +1432,6 @@ class Dx
 	}
 	
 	public static function dd($data){
-		//echo var_export($data);
 		echo self::dnl($data);
 		exit;
 	}
@@ -1449,41 +1448,35 @@ class Dx
 		foreach($obj as $key => $value) 
 		{
 			foreach($value as $data => $val)
-					{	
-						if(!empty(implode(',', $val))){
-						$res .= '<span style="margin:2px;width:100%" class="label label-danger"><span class="label label-info">'.implode(' | ', $val).'</span>';
-						if(!empty($value['hour']))
-						{
-							$res .=' ' .$value['hour'];
-							//$H=$value['hour'];
-							//(!empty($H))? $res.=' '. $H : $res .='';	
-						}
-						}
-						$res.= '</span>';
-					}
+			{	
+				if(!empty(implode(',', $val))){
+				$res .= '<span style="margin:2px;width:100%" class="label label-danger"><span class="label label-info">'.implode(' | ', $val).'</span>';
+				if(!empty($value['hour']))
+				{
+					$res .=' ' .$value['hour'];
+					//$H=$value['hour'];							//(!empty($H))? $res.=' '. $H : $res .='';	
+				}
+				}
+				$res.= '</span>';
+			}
 		}
 		return $res;	
 }
 
 /*
+	$object = json_decode($this->params->get('search_replace'), true);
+	$res=[];
+	$i=0;
+	$j=0;
+	foreach($object as $key => $items)
+	{
+		foreach($items as $item => $val)
+		{
+			$res[$item][$key]=$val;					
+		}
+	}
+	die(json_encode(($res)));
 
-
-				$object = json_decode($this->params->get('search_replace'), true);
-			$res=[];
-			$i=0;
-			$j=0;
-
-
-
-			foreach($object as $key => $items)
-			{
-				foreach($items as $item => $val)
-				{
-					$res[$item][$key]=$val;
-					
-				}
-			}
-			die(json_encode(($res)));
-			*/
+*/
 		
 }
