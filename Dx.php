@@ -1454,7 +1454,7 @@ class Dx
 				if(!empty($value['hour']))
 				{
 					$res .=' ' .$value['hour'];
-					//$H=$value['hour']; -----//(!empty($H))? $res.=' '. $H : $res .='';	
+					//$H=$value['hour']; ---//(!empty($H))? $res.=' '. $H : $res .='';	
 				}
 				}
 				$res.= '</span>';
