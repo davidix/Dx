@@ -1038,10 +1038,8 @@ class Dx
 	}
 
 	/*****
-	 * 
 	 * every thing will be ok!
 	 * thanks :)
-	 * 
 	 */
 
 	/**
