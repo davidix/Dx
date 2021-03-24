@@ -1037,7 +1037,12 @@ class Dx
 
 	}
 
-	
+	/*****
+	 * 
+	 * every thing will be ok!
+	 * thanks :)
+	 * 
+	 */
 
 	/**
 	 * Get Tables From Database
