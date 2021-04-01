@@ -1016,7 +1016,6 @@ class Dx
 		/**
 		 * If User Use Custom DB Configuration
 		 */
-
 		$option = array();
 		$option['driver'] = $driver;
 		$option['host'] = $host;
@@ -1041,13 +1040,6 @@ class Dx
 	 * every thing will be ok!
 	 * thanks :)
 	 */
-
-
-
-
-
-
-
 
 	 
 	/**
