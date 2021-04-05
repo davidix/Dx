@@ -1037,7 +1037,7 @@ class Dx
 	}
 
 	/**
-	 * every thing will be ok!
+	 * every thing will be ok and fun!
 	 * thanks       :)
 	 */
 
