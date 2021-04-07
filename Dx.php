@@ -1470,9 +1470,7 @@ class Dx
 
 /*
 	$object = json_decode($this->params->get('search_replace'), true);
-	$res=[];
-	$i=0;
-	$j=0;
+	$res=[];	$i=0;	$j=0;
 	foreach($object as $key => $items)
 	{
 		foreach($items as $item => $val)
