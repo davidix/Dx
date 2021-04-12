@@ -1471,9 +1471,6 @@ class Dx
 }
 
 
-
-
-
 /*
 	$object = json_decode($this->params->get('search_replace'), true);
 	$res=[];	$i=0;	$j=0;
