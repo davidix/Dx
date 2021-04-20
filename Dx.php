@@ -774,6 +774,7 @@ class Dx
 		return;
 	}
 
+	
 	//Compress CSS files
 	public static function compressCSS()
 	{//function to compress css files
