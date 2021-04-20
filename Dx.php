@@ -864,25 +864,28 @@ class Dx
 	}
 
 	//Dx Methods
-	public static function getACFFiles($id, $FieldTotalAddress, $fileIndex=-1, $getCount=false, $ul_class='com_nasr_report_files', $DLTitle="دانلود")
+	/**
+	 * 
+	 * 
+	 */
+	public static function getACFFiles($id, $FieldTotalAddress, $fileIndex=-1, $getCount=false, $getObject = false, $ul_class='com_nasr_report_files', $DLTitle="دانلود")
     {
-		//getACFFiles($id,'com_nasr.project/NasrModel/Project/mafasa',-1,true)
-		$context="";$tblPrefix="";$model="";$Field_name="";
-		
-		$FieldAddress = explode("/",$FieldTotalAddress);
-				
-		$context 		= $FieldAddress[0];
-		$tblPrefix 		= $FieldAddress[1];
-		$model		 	= $FieldAddress[2];
-		$Field_name 	= $FieldAddress[3];
+        //getACFFiles($id,'com_nasr.project/NasrModel/Project/mafasa',-1,true)
+        $context="";$tblPrefix="";$model="";$Field_name="";
+        $uploaded_files;
+        $FieldAddress = explode("/",$FieldTotalAddress);
+                
+        $context			= $FieldAddress[0];
+        $tblPrefix			= $FieldAddress[1];
+        $model				= $FieldAddress[2];
+        $Field_name     	= $FieldAddress[3];
 
         $res='';
         $item = JModelLegacy::getInstance($model, $tblPrefix)->getItem($id);
-        
         $fields = FieldsHelper::getFields($context, $item);
-		
         
-        $uploaded_files;
+        
+        
         foreach($fields as $field)
         {
             if($field->type=='acfupload' && $field->name==$Field_name)
@@ -894,55 +897,58 @@ class Dx
         
         $base = $uploaded_files->fieldparams->get('upload_folder');
         
-		$files =  $uploaded_files->value;
-		
-		if($fileIndex== -1 && !empty($files)){
-			$res .='<ul class="'.$ul_class.'">';
-			if (is_array($files)){    		
-				foreach ($files as $key => $value)
-					{
-						$res .= '<li><a href="'.JURI::root().$base.'/'.$value.'" download>'.$value.'</a></li>';
-					}
-					
-			}
-			else{
-			  $res .= '<li><a href="'.JURI::root().$base.'/'.$files.'" download>'.$files.'</a></li>';
-			}
-			$res .='</ul>';
-			if($getCount==true){
-				$filesCount=0;
-			   if (is_array($files))  {  		
-					foreach ($files as $key => $value)
-						if(!empty($value))$filesCount++;
-					
-			   }
+        $files =  $uploaded_files->value;
+        if($getObject)
+        {
+			for ($i=0;$i<=(count($files)-1);$i++)
+				{
+					$files[$i]=JURI::root().$base.'/'.$files[$i];
+				}
 				
-				return $filesCount;
-			}
-			else{
-			return $res;
-			}
+				return $files;
         }
-		else{
-			if (is_array($files)){    
-			die();
-				foreach ($files as $key => $value)
-					{
-						if($key == $fileIndex)
-						return JURI::root().$base.'/'.$value;
-					}
-					
-			}
-			elseif(!empty($files))
-			{
-				return JURI::root().$base.'/'.$files;
-			}
-			else{
-				return '#';
-			}
+		if($getCount)
+		{
+			return count($files);
 		}
+        if($fileIndex== -1 && !empty($files)){
+            $res .='<ul class="'.$ul_class.'">';
+            if (is_array($files)){            
+                foreach ($files as $key => $value)
+                    {
+                        $res .= '<li><a href="'.JURI::root().$base.'/'.$value.'" download>'.$value.'</a></li>';
+                    }
+                    
+            }
+            else{
+              $res .= '<li><a href="'.JURI::root().$base.'/'.$files.'" download>'.$files.'</a></li>';
+            }
+            $res .='</ul>';
+
+            
+            return $res;
+            
+        }
+        else{
+            if (is_array($files)){    
+            die();
+                foreach ($files as $key => $value)
+                    {
+                        if($key == $fileIndex)
+                        return JURI::root().$base.'/'.$value;
+                    }
+                    
+            }
+            elseif(!empty($files))
+            {
+                return JURI::root().$base.'/'.$files;
+            }
+            else{
+                return '#';
+            }
+        }
         
-	}
+    }
 	
 	public static function SetTemplate($tmpl)
 	{
