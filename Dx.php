@@ -1413,13 +1413,13 @@ class Dx
 			if(count($data) == 0){
 				$str = "<i>Empty array.</i>";
 			}else{
-				$str = "<table class=\"table table-hover table-striped\" style=\"border-bottom:0px solid #000;\" cellpadding=\"0\" cellspacing=\"0\"><td  colspan=\"3\">"
+				$str = "<table class=\"table table-hover table-striped\" style=\"border-bottom:0px solid #000;\" cellpadding=\"0\" cellspacing=\"0\"><td class='objType ' colspan=\"3\">"
 				.gettype($data)."</td>";
 				$str .= "";
 				foreach ($data as $key => $value) {
 					$str .= "<tr><td style=\"border:1px solid #000;\">". $key 
 					. "</td><td style=\"border:1px solid #000;\">" . self::d($value) . "</td>"
-					. "</td><td style=\"border:1px solid #000;\">" . gettype($value) . "</td></tr>";
+					. "</td><td class='vType' style=\"border:1px solid #000;\">" . gettype($value) . "</td></tr>";
 				}
 				$str .= "</table>";
 			}
