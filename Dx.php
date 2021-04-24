@@ -598,6 +598,8 @@ class Dx
 		return $new;
 	}
 
+
+	
 	/* Handy function for Debug */ 
 	public static function printObj($obj=null) {
 		if(isset($obj))
