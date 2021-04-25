@@ -584,7 +584,6 @@ class Dx
 
 	/**
 	* Convert object to array
-	*
 	*/
 	public static function object_to_array($obj) {
 		if(is_object($obj)) $obj = (array) $obj;
