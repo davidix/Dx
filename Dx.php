@@ -373,7 +373,6 @@ class Dx
 
 	/**
 	* Add javascript
-	*
 	* @param mixed  $sources   . string or array
 	* @param string $seperator . default is , (comma)
 	*
