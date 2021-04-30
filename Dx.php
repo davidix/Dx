@@ -99,6 +99,8 @@ class Dx
 		. ($class ? ' ' . $class : '');
 	}
 
+
+	
 	//Get view
 	public static function view($class = '')
 	{
@@ -380,7 +382,7 @@ class Dx
 	*/
 
 
-	
+
 	public static function addJS($sources, $seperator = ',')
 	{
 
