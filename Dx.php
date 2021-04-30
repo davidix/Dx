@@ -371,6 +371,9 @@ class Dx
 		return self::getInstance();
 	}
 
+
+
+	
 	/**
 	* Add javascript
 	* @param mixed  $sources   . string or array
