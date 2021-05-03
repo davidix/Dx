@@ -69,7 +69,6 @@ class Dx
 
 		return $params->get($key);
 	}
-
 	//Body Class
 	public static function bodyClass($class = '')
 	{
@@ -88,7 +87,6 @@ class Dx
 		{
 			$layout = 'edit';
 		}
-		
 
 		return 'site ' . $option
 		. ' view-' . $view
