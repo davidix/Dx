@@ -1456,6 +1456,26 @@ class Dx
 	}
 
  
+	public static function HTML2menu($menu,$html)
+	{
+		$app = JFactory::getApplication();
+        $document = JFactory::getDocument();
+
+        $menu = $app->getMenu();
+        if ($app->isSite() && $menu->getActive() == $menu->getDefault()) {
+
+			// copy(JUri::base().$menu->getActive()->link, getcwd().DIRECTORY_SEPARATOR."categories.html");
+			$file = file_get_contents(JUri::base().'categories.html');
+			//file_put_contents(getcwd().DIRECTORY_SEPARATOR."categories.html", $file);
+			
+			echo ($file);
+			jexit();
+
+           // header('Location: '.JUri::base().'static.html');
+        }
+	}
+
+
 	function json2span($string)
 	{
 		$obj = json_decode($string, TRUE);
