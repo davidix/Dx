@@ -1406,7 +1406,6 @@ class Dx
 		echo $res;
 	}
 
-
 	private static function d($data){
 		
 		if(is_null($data)){
