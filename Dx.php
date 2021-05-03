@@ -88,6 +88,7 @@ class Dx
 		{
 			$layout = 'edit';
 		}
+		
 
 		return 'site ' . $option
 		. ' view-' . $view
