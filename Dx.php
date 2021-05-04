@@ -1404,8 +1404,7 @@ class Dx
 		echo $res;
 	}
 
-
-
+	
 	private static function d($data){
 		
 		if(is_null($data)){
@@ -1489,43 +1488,6 @@ class Dx
 		}
 	}
 
-	public static function page2html($page,$dst)
-	{
-        if (self::url_exists($page)) 
-			return copy($page, getcwd().DIRECTORY_SEPARATOR.$dst);
-
-	}
-
-	public static function url_exists($url)
-	{
-		$file_headers = @get_headers($url);
-		if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') 
-		{
-			return false;
-		}
-		else 
-		{
-			return true;
-		}
-	}	public static function page2html($page,$dst)
-	{
-        if (self::url_exists($page)) 
-			return copy($page, getcwd().DIRECTORY_SEPARATOR.$dst);
-
-	}
-
-	public static function url_exists($url)
-	{
-		$file_headers = @get_headers($url);
-		if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') 
-		{
-			return false;
-		}
-		else 
-		{
-			return true;
-		}
-	}
 
 	function json2span($string)
 	{
