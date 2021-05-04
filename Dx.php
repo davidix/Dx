@@ -1416,7 +1416,7 @@ class Dx
 			if(count($data) == 0){
 				$str = "<i>Empty array.</i>";
 			}else{
-				$str = "<table class=\"table table-hover table-striped\" style=\"border-bottom:0px solid #000;\" cellpadding=\"0\" cellspacing=\"0\"><td class='objType ' colspan=\"3\">"
+				$str = "<table class=\"table table-hover table-striped table-bordered\"  cellpadding=\"0\" cellspacing=\"0\"><td class='objType ' colspan=\"3\">"
 				.gettype($data)."</td>";
 				$str .= "";
 				foreach ($data as $key => $value) {
@@ -1456,31 +1456,24 @@ class Dx
 	}
 
  
-	public static function HTML2menu($menu,$html)
+	public static function html2menu($menuid,$html)
 	{
 		$app		= JFactory::getApplication();
-        $document	= JFactory::getDocument();
         $menu		= $app->getMenu();
-
-        if ($app->isSite() && $menu->getActive() == $menu->getDefault()) {
-
-			// copy(JUri::base().$menu->getActive()->link, getcwd().DIRECTORY_SEPARATOR."categories.html");
-			$file = file_get_contents(JUri::base().'categories.html');
-			//file_put_contents(getcwd().DIRECTORY_SEPARATOR."categories.html", $file);
-
+		//self::dd($menu->getActive());
+        if ($app->isSite() && $menu->getActive()->id == $menuid) 
+		{
+			$file = file_get_contents(JUri::base().DIRECTORY_SEPARATOR.$html);
 			echo ($file);
 			jexit();
-
-           // header('Location: '.JUri::base().'static.html');
         }
 	}
 
 	public static function page2html($page,$dst)
 	{
-        if (url_exists($url)) 
-		{
-			copy($url, getcwd().DIRECTORY_SEPARATOR.$dst);
-        }
+        if (self::url_exists($page)) 
+			return copy($page, getcwd().DIRECTORY_SEPARATOR.$dst);
+
 	}
 
 	public static function url_exists($url)
@@ -1488,11 +1481,11 @@ class Dx
 		$file_headers = @get_headers($url);
 		if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') 
 		{
-			$exists = false;
+			return false;
 		}
 		else 
 		{
-			$exists = true;
+			return true;
 		}
 	}
 
