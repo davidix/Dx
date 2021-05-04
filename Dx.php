@@ -1458,21 +1458,42 @@ class Dx
  
 	public static function HTML2menu($menu,$html)
 	{
-		$app = JFactory::getApplication();
-        $document = JFactory::getDocument();
+		$app		= JFactory::getApplication();
+        $document	= JFactory::getDocument();
+        $menu		= $app->getMenu();
 
-        $menu = $app->getMenu();
         if ($app->isSite() && $menu->getActive() == $menu->getDefault()) {
 
 			// copy(JUri::base().$menu->getActive()->link, getcwd().DIRECTORY_SEPARATOR."categories.html");
 			$file = file_get_contents(JUri::base().'categories.html');
 			//file_put_contents(getcwd().DIRECTORY_SEPARATOR."categories.html", $file);
-			
+
 			echo ($file);
 			jexit();
 
            // header('Location: '.JUri::base().'static.html');
         }
+	}
+
+	public static function page2html($page,$dst)
+	{
+        if (url_exists($url)) 
+		{
+			copy($url, getcwd().DIRECTORY_SEPARATOR.$dst);
+        }
+	}
+
+	public static function url_exists($url)
+	{
+		$file_headers = @get_headers($url);
+		if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') 
+		{
+			$exists = false;
+		}
+		else 
+		{
+			$exists = true;
+		}
 	}
 
 
