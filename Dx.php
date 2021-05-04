@@ -1388,10 +1388,6 @@ class Dx
 			JErrorPage::render($e);
 		}
 	}*/
-
-
-
-	
 	/**********      
 	 * Not sure about this functions
 	 * ***************/
@@ -1408,6 +1404,8 @@ class Dx
 		echo $res;
 	}
 
+
+	
 	private static function d($data){
 		
 		if(is_null($data)){
