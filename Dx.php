@@ -869,8 +869,6 @@ class Dx
 
 	//Dx Methods
 	/**
-	 * 
-	 * 
 	 */
 	public static function getACFFiles($id, $FieldTotalAddress, $fileIndex=-1, $getCount=false, $getObject = false, $ul_class='com_nasr_report_files', $DLTitle="دانلود")
     {
