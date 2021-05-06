@@ -379,9 +379,6 @@ class Dx
 	*
 	* @return self
 	*/
-
-
-
 	public static function addJS($sources, $seperator = ',')
 	{
 
