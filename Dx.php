@@ -708,10 +708,6 @@ class Dx
 		return $match;
 	}
 
-
-
-	
-
 	public static function compressJS($excludes = '')
 	{//function to compress js files
 
