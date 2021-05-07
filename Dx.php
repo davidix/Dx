@@ -372,6 +372,7 @@ class Dx
 		return self::getInstance();
 	}
 
+	
 	/**
 	* Add javascript
 	* @param mixed  $sources   . string or array
@@ -379,7 +380,7 @@ class Dx
 	*
 	* @return self
 	*/
-	
+
 	public static function addJS($sources, $seperator = ',')
 	{
 
