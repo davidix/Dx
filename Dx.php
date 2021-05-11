@@ -12,7 +12,6 @@ jimport('joomla.filesystem.folder');
 jimport('joomla.filter.filteroutput');
 
 
-
 JLoader::register('FieldsHelper', JPATH_ADMINISTRATOR . '/components/com_fields/helpers/fields.php');
 
 class Dx
@@ -1319,6 +1318,45 @@ class Dx
             $content	= $reader->load($filename);
             $data		= $content->getActiveSheet()->toArray(null, true, true, false);
 			
+			$count		= count($data)-1;
+			$labels		= array_shift($data);
+			
+			$keys		= array();
+            $results	= array();
+			if($justLabels) return $labels;
+			foreach ($labels as $label)
+			{
+				$keys[] = $label;
+			}
+           // Add Ids, just in case we want them later
+            $keys[] = 'id';
+            for ($i = 0; $i < $count; $i++) 
+			{
+                $data[$i][] = $i;
+            }
+			
+            for ($j = 0; $j < $count; $j++)
+			{
+                $d = array_combine($keys, $data[$j]);
+                $results[$j] = $d;
+            }
+			
+			return $results;
+        }
+		catch (Exception $e) {return $e->getMessage();}
+		
+	}
+
+	public static function spreadsheet2json($filename, $justLabels=false)
+    {
+		require_once __DIR__ . '/libs/vendor/autoload.php';
+		
+        try {
+			$reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReaderForFile($filename);
+			$reader->setReadDataOnly(TRUE);
+			$spreadsheet = $reader->load($filename);
+			$data = $spreadsheet->getActiveSheet()->toArray();
+
 			$count		= count($data)-1;
 			$labels		= array_shift($data);
 			
