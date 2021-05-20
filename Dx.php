@@ -1415,15 +1415,6 @@ class Dx
 
 			$db->setQuery($query);
 			$result = $db->execute();
-
-
-
-
-
-
-			
-
-
 		//	$db->transactionCommit();
 		}
 		catch (Exception $e)
