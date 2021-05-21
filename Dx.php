@@ -1424,8 +1424,9 @@ class Dx
 			JErrorPage::render($e);
 		}
 
-		
 
+
+		
 	}*/
 	/**********      
 	 * Not sure about this functions
