@@ -1423,11 +1423,6 @@ class Dx
 			//$db->transactionRollback();
 			JErrorPage::render($e);
 		}
-
-
-
-		
-
 	}*/
 	/**********      
 	 * Not sure about this functions
