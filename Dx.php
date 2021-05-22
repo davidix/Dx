@@ -867,29 +867,6 @@ class Dx
 		return;
 	}
 
-	static function getTableStructure($table=null, $db = null) {
-		if (!isset($db)) {
-			$db = Dx::getDBInstance();
-		}
-		if(!isset($table)){
-			return false;
-		}
-		$query = "DESC $table";
-		$db -> setQuery($query);
-		$rows = $db -> loadAssocList();
-		//check for test results
-		/*
-		for ($i = 0; $i < count($rows); $i++) {
-			$row = &$rows[$i];
-			foreach ($row as $key => &$val) {
-				$row['Browse']='<a href="index.php?option=com_jmm&view=tables&action=structure&&tbl='.$val.'">Edit</a>';
-				$row['Structure']='<a href="index.php?option=com_jmm&view=tables&action=browse&tbl='.$val.'">Delete</a>';
-			}
-		}
-		*/
-		return $rows;
-	}
-
 	//Dx Methods
 	/**
 	 */
@@ -1547,8 +1524,6 @@ class Dx
 		}
 	}
 
-
-	
 
 	function json2span($string)
 	{
