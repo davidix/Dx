@@ -1525,6 +1525,22 @@ class Dx
 	}
 
 
+	public static function printObj($obj=null) {
+		if(isset($obj))
+		{
+			echo '<pre>';
+			print_r($obj);
+			echo '</pre><hr/>';
+		}
+	}
+
+	public static function throwError($message,$code=null){
+		if(!empty($code))
+			throw new Exception($message);
+		else
+			throw new Exception($message);
+	}
+
 	function json2span($string)
 	{
 		$obj = json_decode($string, TRUE);
