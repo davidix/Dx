@@ -1504,6 +1504,7 @@ class Dx
         }
 	}
 
+
 	public static function page2html($page,$dst)
 	{
         if (self::url_exists($page)) 
