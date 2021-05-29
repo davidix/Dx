@@ -97,8 +97,6 @@ class Dx
 		. ($direction ? ' ' . $direction : '')
 		. ($class ? ' ' . $class : '');
 	}
-
-
 	
 	//Get view
 	public static function view($class = '')
