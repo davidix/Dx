@@ -97,7 +97,7 @@ class Dx
 		. ($direction ? ' ' . $direction : '')
 		. ($class ? ' ' . $class : '');
 	}
-	
+
 	//Get view
 	public static function view($class = '')
 	{
@@ -448,7 +448,6 @@ class Dx
 
 	/**
 	* Less Init
-	*
 	*/
 	public static function lessInit()
 	{
