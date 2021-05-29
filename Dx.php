@@ -16,6 +16,7 @@ JLoader::register('FieldsHelper', JPATH_ADMINISTRATOR . '/components/com_fields/
 
 class Dx
 {
+	
 	private static $_instance;
 	private $document;
 	private $importedFiles = array();
@@ -69,7 +70,6 @@ class Dx
 
 		return $params->get($key);
 	}
-
 	//Body Class
 	public static function bodyClass($class = '')
 	{
@@ -373,6 +373,7 @@ class Dx
 		return self::getInstance();
 	}
 
+
 	/**
 	* Add javascript
 	* @param mixed  $sources   . string or array
@@ -380,8 +381,6 @@ class Dx
 	*
 	* @return self
 	*/
-
-
 
 	public static function addJS($sources, $seperator = ',')
 	{
@@ -870,8 +869,6 @@ class Dx
 
 	//Dx Methods
 	/**
-	 * 
-	 * 
 	 */
 	public static function getACFFiles($id, $FieldTotalAddress, $fileIndex=-1, $getCount=false, $getObject = false, $ul_class='com_nasr_report_files', $DLTitle="دانلود")
     {
@@ -1349,6 +1346,45 @@ class Dx
 		catch (Exception $e) {return $e->getMessage();}
 		
 	}
+
+	public static function spreadsheet2json($filename, $justLabels=false)
+    {
+		require_once __DIR__ . '/libs/vendor/autoload.php';
+		
+        try {
+			$reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReaderForFile($filename);
+			$reader->setReadDataOnly(TRUE);
+			$spreadsheet = $reader->load($filename);
+			$data = $spreadsheet->getActiveSheet()->toArray();
+
+			$count		= count($data)-1;
+			$labels		= array_shift($data);
+			
+			$keys		= array();
+            $results	= array();
+			if($justLabels) return $labels;
+			foreach ($labels as $label)
+			{
+				$keys[] = $label;
+			}
+           // Add Ids, just in case we want them later
+            $keys[] = 'id';
+            for ($i = 0; $i < $count; $i++) 
+			{
+                $data[$i][] = $i;
+            }
+			
+            for ($j = 0; $j < $count; $j++)
+			{
+                $d = array_combine($keys, $data[$j]);
+                $results[$j] = $d;
+            }
+			
+			return $results;
+        }
+		catch (Exception $e) {return $e->getMessage();}
+		
+	}
 	
 	public static function getArticlePageURL($item)
 	{
@@ -1379,7 +1415,6 @@ class Dx
 
 			$db->setQuery($query);
 			$result = $db->execute();
-
 		//	$db->transactionCommit();
 		}
 		catch (Exception $e)
@@ -1389,8 +1424,6 @@ class Dx
 			JErrorPage::render($e);
 		}
 	}*/
-
-
 	/**********      
 	 * Not sure about this functions
 	 * ***************/
@@ -1407,7 +1440,7 @@ class Dx
 		echo $res;
 	}
 
-
+	
 	private static function d($data){
 		
 		if(is_null($data)){
@@ -1418,7 +1451,7 @@ class Dx
 			if(count($data) == 0){
 				$str = "<i>Empty array.</i>";
 			}else{
-				$str = "<table class=\"table table-hover table-striped\" style=\"border-bottom:0px solid #000;\" cellpadding=\"0\" cellspacing=\"0\"><td class='objType ' colspan=\"3\">"
+				$str = "<table class=\"table table-hover table-striped table-bordered\"  cellpadding=\"0\" cellspacing=\"0\"><td class='objType ' colspan=\"3\">"
 				.gettype($data)."</td>";
 				$str .= "";
 				foreach ($data as $key => $value) {
@@ -1460,6 +1493,41 @@ class Dx
 
 
  
+	public static function html2menu($menuid,$html)
+	{
+		$app		= JFactory::getApplication();
+        $menu		= $app->getMenu();
+		//self::dd($menu->getActive());
+        if ($app->isSite() && $menu->getActive()->id == $menuid) 
+		{
+			$file = file_get_contents(JUri::base().DIRECTORY_SEPARATOR.$html);
+			echo ($file);
+			jexit();
+        }
+	}
+
+
+	public static function page2html($page,$dst)
+	{
+        if (self::url_exists($page)) 
+			return copy($page, getcwd().DIRECTORY_SEPARATOR.$dst);
+
+	}
+
+	public static function url_exists($url)
+	{
+		$file_headers = @get_headers($url);
+		if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') 
+		{
+			return false;
+		}
+		else 
+		{
+			return true;
+		}
+	}
+
+
 	function json2span($string)
 	{
 		$obj = json_decode($string, TRUE);
