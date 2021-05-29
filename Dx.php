@@ -1457,6 +1457,8 @@ class Dx
 		echo "[" . date("Y/m/d H:i:s") . "]" . $message . "<br>\n";
 	}
 
+
+
  
 	function json2span($string)
 	{
