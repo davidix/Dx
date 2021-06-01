@@ -11,7 +11,6 @@ jimport('joomla.filesystem.file');
 jimport('joomla.filesystem.folder');
 jimport('joomla.filter.filteroutput');
 
-
 JLoader::register('FieldsHelper', JPATH_ADMINISTRATOR . '/components/com_fields/helpers/fields.php');
 
 class Dx
@@ -99,8 +98,6 @@ class Dx
 		. ($class ? ' ' . $class : '');
 	}
 
-
-	
 	//Get view
 	public static function view($class = '')
 	{
@@ -451,7 +448,6 @@ class Dx
 
 	/**
 	* Less Init
-	*
 	*/
 	public static function lessInit()
 	{
@@ -708,8 +704,11 @@ class Dx
 		return $match;
 	}
 
+
+
 	public static function compressJS($excludes = '')
-	{//function to compress js files
+	{
+		//function to compress js files
 
 		require_once(__DIR__ . '/libs/Minifier.php');
 
