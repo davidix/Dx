@@ -705,6 +705,25 @@ class Dx
 	}
 
 
+		//remove
+		private static function excludeJSD($key, $excludes)
+		{
+			$match = false;
+			if ($excludes)
+			{
+				$excludes = explode(',', $excludes);
+				foreach ($excludes as $exclude)
+				{
+					if (JFile::getName($key) == trim($exclude))
+					{
+						$match = true;
+					}
+				}
+			}
+	
+			return $match;
+		}
+
 
 	public static function compressJS($excludes = '')
 	{
