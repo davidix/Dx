@@ -532,6 +532,7 @@ class Dx
 		$lessInit = self::getInstance()->less();
 		$newCache = $lessInit->cachedCompile($cache);
 
+		
 		if (!is_array($cache) || $newCache["updated"] > $cache["updated"])
 		{
 
