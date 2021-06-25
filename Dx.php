@@ -528,7 +528,7 @@ class Dx
 		{
 			$cache = $less;
 		}
-		
+
 		$lessInit = self::getInstance()->less();
 		$newCache = $lessInit->cachedCompile($cache);
 		if (!is_array($cache) || $newCache["updated"] > $cache["updated"])
@@ -1563,4 +1563,44 @@ class Dx
 	die(json_encode(($res)));
 */
 		
+public static function addJS($sources, $seperator = ',')
+{
+
+	$srcs = array();
+
+	$template = JFactory::getApplication()->getTemplate();
+	$path     = JPATH_THEMES . '/' . $template . '/js/';
+
+	if (is_string($sources))
+	{
+		$sources = explode($seperator, $sources);
+	}
+	if (!is_array($sources))
+	{
+		$sources = array($sources);
+	}
+
+	foreach ((array) $sources as $source)
+	$srcs[] = trim($source);
+
+	foreach ($srcs as $src)
+	{
+
+		if (file_exists($path . $src))
+		{
+			self::getInstance()->document->addScript(JURI::base(true) . '/templates/' . $template . '/js/' . $src);
+		}
+		else
+		{
+			if ($src != 'custom.js')
+			{
+				self::getInstance()->document->addScript($src);
+			}
+		}
+	}
+
+	return self::getInstance();
 }
+}
+
+
