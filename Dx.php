@@ -528,9 +528,6 @@ class Dx
 		{
 			$cache = $less;
 		}
-
-		
-
 		
 		$lessInit = self::getInstance()->less();
 		$newCache = $lessInit->cachedCompile($cache);
