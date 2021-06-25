@@ -1476,10 +1476,10 @@ class Dx
 		}
 		return $str;
 	}
-	
 	public static function dnl($data){		
 		echo self::d($data) . "<br>\n";
 	}
+	
 	
 	
 	public static function dd($data){
