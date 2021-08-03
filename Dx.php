@@ -1561,4 +1561,26 @@ class Dx
 	}
 	die(json_encode(($res)));
 */
+
+function json2span_vn($string)
+{
+	$obj = json_decode($string, TRUE);
+	$res;
+	foreach($obj as $key => $value) 
+	{
+		foreach($value as $data => $val)
+		{	
+			if(!empty(implode(',', $val))){
+			$res .= '<span style="margin:2px;width:100%" class="label label-danger"><span class="label label-info">'.implode(' | ', $val).'</span>';
+			if(!empty($value['hour']))
+			{
+				$res .=' ' .$value['hour'];
+				/*$H=$value['hour']; ---//(!empty($H))?   $res.=' '. $H : $res .='';	*/
+			}
+			}
+			$res.= '</span>';
+		}
+	}
+	return $res;	
+}
 }
