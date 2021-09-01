@@ -1133,6 +1133,7 @@ class Dx
 		return $rows;
 	}
 
+	
 	/**
 	 * Display Data From Table
 	 */
