@@ -1134,6 +1134,7 @@ class Dx
 	}
 
 	
+	
 	/**
 	 * Display Data From Table
 	 */
