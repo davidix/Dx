@@ -871,6 +871,7 @@ class Dx
 	//Dx Methods
 	/**
 	 */
+
 	public static function getACFFiles($id, $FieldTotalAddress, $fileIndex=-1, $getCount=false, $getObject = false, $ul_class='com_nasr_report_files', $DLTitle="دانلود")
     {
         //getACFFiles($id,'com_nasr.project/NasrModel/Project/mafasa',-1,true)
@@ -1072,6 +1073,7 @@ class Dx
 	/**
 	 * Get Cloumn Lists From Tablename
 	 */
+
 	static function getCloumnsFromTable($table, $db = null) {
 		if (!isset($db)) {
 			$db = Dx::getDBInstance();
@@ -1132,8 +1134,6 @@ class Dx
 		*/
 		return $rows;
 	}
-
-	
 	
 	/**
 	 * Display Data From Table
