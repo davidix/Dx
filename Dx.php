@@ -1552,7 +1552,71 @@ class Dx
 			}
 		}
 		return $res;	
-}
+	}
+
+	private static function d($data){
+		
+		if(is_null($data)){
+			$str = "<i>NULL</i>";
+		}elseif($data == ""){
+			$str = "<i>Empty</i>";
+		}elseif(is_array($data)){
+			if(count($data) == 0){
+				$str = "<i>Empty array.</i>";
+			}else{
+				$str = "<table class=\"table table-hover table-striped table-bordered\"  cellpadding=\"0\" cellspacing=\"0\"><td class='objType ' colspan=\"3\">"
+				.gettype($data)."</td>";
+				$str .= "";
+				foreach ($data as $key => $value) {
+					$str .= "<tr><td style=\"border:1px solid #000;\">". $key 
+					. "</td><td style=\"border:1px solid #000;\">" . self::d($value) . "</td>"
+					. "</td><td class='vType' style=\"border:1px solid #000;\">" . gettype($value) . "</td></tr>";
+				}
+				$str .= "</table>";
+			}
+		}elseif(is_resource($data)){
+			while($arr = mysql_fetch_array($data)){
+				$data_array[] = $arr;
+			}
+			$str = self::d($data_array);
+		}elseif(is_object($data)){
+			$str = self::d(get_object_vars($data));
+		}elseif(is_bool($data)){
+			$str = "<i>" . ($data ? "True" : "False") . "</i>";
+		}else{
+			$str = $data;
+			$str = preg_replace("/\n/", "<br>\n", $str);
+		}
+		return $str;
+	}
+	public static function dnl($data){		
+		echo self::d($data) . "<br>\n";
+	}
+	
+	public static function dd($data){
+		echo self::dnl($data);
+		exit;
+	}
+	
+	public static function ddt($message = ""){
+		echo "[" . date("Y/m/d H:i:s") . "]" . $message . "<br>\n";
+	}
+
+
+
+ 
+	public static function html2menu($menuid,$html)
+	{
+		$app		= JFactory::getApplication();
+        $menu		= $app->getMenu();
+		//self::dd($menu->getActive());
+        if ($app->isSite() && $menu->getActive()->id == $menuid) 
+		{
+			$file = file_get_contents(JUri::base().DIRECTORY_SEPARATOR.$html);
+			echo ($file);
+			jexit();
+        }
+	}
 /*
 	$object = json_decode($this->params->get('search_replace'), true);
 	$res=[];	$i=0;	$j=0;
