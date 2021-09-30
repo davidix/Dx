@@ -1531,7 +1531,6 @@ class Dx
 		}
 	}
 
-
 	function json2span($string)
 	{
 		$obj = json_decode($string, TRUE);
@@ -1553,6 +1552,7 @@ class Dx
 		}
 		return $res;	
 	}
+
 
 	
 /*
