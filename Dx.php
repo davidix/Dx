@@ -35,22 +35,7 @@ class Dx
 	{
 	}
 
-
-
-	/*
-	$object = json_decode($this->params->get('search_replace'), true);
-	$res=[];	$i=0;	$j=0;
-	foreach($object as $key => $items)
-	{
-		foreach($items as $item => $val)
-		{
-			$res[$item][$key]=$val;					
-		}
-	}
-	die(json_encode(($res)));
-*/
-
-
+	
 	//making self object for singleton method
 	final public static function getInstance()
 	{
