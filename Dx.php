@@ -67,6 +67,8 @@ class Dx
 		return $doc;
 	}
 
+
+	
 	public static function getParam($key)
 	{
 		$params = JFactory::getApplication()->getTemplate(true)->params;
