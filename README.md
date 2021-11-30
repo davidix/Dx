@@ -1,6 +1,7 @@
 # Dx
 useful, fast and clean joomla library
 
+
     [1] => getInstance
     [2] => getDocument
     [3] => bodyClass
