@@ -497,6 +497,7 @@ class Dx
 	*/
 
 	
+	   
 	public static function setLessVariable($name, $value)
 	{
 		self::getInstance()->less()->setVariables(array($name => $value));
