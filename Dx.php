@@ -5,8 +5,6 @@
 * @copyright Copyright (c) 2010 - 2020 Davidix
 */
 
-
-
 defined('_JEXEC') or die ('resticted aceess');
 
 jimport('joomla.filesystem.file');
