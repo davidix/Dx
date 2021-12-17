@@ -2,7 +2,7 @@
 /**
 * @package Dx Framework
 * @author Davidix
-* @copyright Copyright (c) 2010 - 2020 Davidix
+* @copyright Copyright (c) 2010 - 2021 Davidix
 */
 
 defined('_JEXEC') or die ('resticted aceess');
