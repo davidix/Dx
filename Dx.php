@@ -1141,11 +1141,7 @@ class Dx
 		return $rows;
 	}
 
-	
-	
-	/**
-	 * Display Data From Table
-	 */
+	/**	 * Display Data From Table	 */
 	static function getDataFromTable($table, $db = null) {
 		if (!isset($db)) {
 			$db = Dx::getDBInstance();
@@ -1153,16 +1149,7 @@ class Dx
 		$query = "SELECT * FROM $table";
 		$db -> setQuery($query);
 		$rows = $db -> loadAssocList();
-		//check for test results
-		/*
-		for ($i = 0; $i < count($rows); $i++) {
-			$row = &$rows[$i];
-			foreach ($row as $key => &$val) {
-				$row['Browse']='<a href="index.php?option=com_jmm&view=tables&action=structure&&tbl='.$val.'">Edit</a>';
-				$row['Structure']='<a href="index.php?option=com_jmm&view=tables&action=browse&tbl='.$val.'">Delete</a>';
-			}
-		}
-		*/
+
 		return $rows;
 	}
 	public static function getXbyID($tbl, $conds = null, $list=true, $getCount=false, $db = null)
