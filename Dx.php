@@ -15,6 +15,8 @@ JLoader::register('FieldsHelper', JPATH_ADMINISTRATOR . '/components/com_fields/
 
 class Dx
 {
+
+	
 	private static $_instance;
 	private $document;
 	private $importedFiles = array();
