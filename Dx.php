@@ -605,8 +605,6 @@ class Dx
 		return $new;
 	}
 
-
-	
 	/* Handy function for Debug */ 
 	public static function printObj($obj=null) {
 		if(isset($obj))
@@ -623,7 +621,6 @@ class Dx
 		else
 			throw new Exception($message);
 	}
-
 
 	public static function getRandomString($length = 10){
 		
@@ -646,7 +643,6 @@ class Dx
 		self::throwError($message);
 	}
 	
-
 	public static function validateDir($pathDir, $errorPrefix=null){
 		if(is_dir($pathDir) == true)
 			return(false);
