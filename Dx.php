@@ -689,7 +689,8 @@ class Dx
 		$item = $arr[$rand];
 		return($item);
 	}
-
+ 
+	
 	//Exclude js and return others js
 	private static function excludeJS($key, $excludes)
 	{
