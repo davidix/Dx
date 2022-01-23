@@ -981,7 +981,6 @@ class Dx
 			return 0;
 	}
 
-
 	/* Database Methodes */
 		/**
 	 * Get Database Default Settings
@@ -1051,11 +1050,6 @@ class Dx
 		return $db;
 
 	}
-
-	/**
-	 * every thing will be ok and fun!
-	 * thanks       :)
-	 */
 
 	 
 	/**
