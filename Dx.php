@@ -690,7 +690,7 @@ class Dx
 		return($item);
 	}
  
-	
+
 	//Exclude js and return others js
 	private static function excludeJS($key, $excludes)
 	{
@@ -709,9 +709,6 @@ class Dx
 
 		return $match;
 	}
-
-
-
 
 	public static function compressJS($excludes = '')
 	{
@@ -981,6 +978,7 @@ class Dx
 			return 0;
 	}
 
+
 	/* Database Methodes */
 		/**
 	 * Get Database Default Settings
@@ -1050,6 +1048,11 @@ class Dx
 		return $db;
 
 	}
+
+	/**
+	 * every thing will be ok and fun!
+	 * thanks       :)
+	 */
 
 	 
 	/**
