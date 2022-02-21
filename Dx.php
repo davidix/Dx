@@ -1542,62 +1542,7 @@ class Dx
 		return $res;	
 	}
 	
-	public static function spreadsheet2json($filename, $justLabels=false)
-    {
-		require_once __DIR__ . '/libs/vendor/autoload.php';
-		
-        try {
-			$reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReaderForFile($filename);
-			$reader->setReadDataOnly(TRUE);
-			$spreadsheet = $reader->load($filename);
-			$data = $spreadsheet->getActiveSheet()->toArray();
-
-			$count		= count($data)-1;
-			$labels		= array_shift($data);
-			
-			$keys		= array();
-            $results	= array();
-			if($justLabels) return $labels;
-			foreach ($labels as $label)
-			{
-				$keys[] = $label;
-			}
-           // Add Ids, just in case we want them later
-            $keys[] = 'id';
-            for ($i = 0; $i < $count; $i++) 
-			{
-                $data[$i][] = $i;
-            }
-			
-            for ($j = 0; $j < $count; $j++)
-			{
-                $d = array_combine($keys, $data[$j]);
-                $results[$j] = $d;
-            }
-			
-			return $results;
-        }
-		catch (Exception $e) {return $e->getMessage();}
-		
-	}
 	
-	public static function getArticlePageURL($item)
-	{
-		JLoader::import('joomla.application.component.model');
-		require_once JPATH_SITE . '/components/com_content/helpers/route.php';
-		JModelLegacy::addIncludePath(JPATH_SITE.'/components/com_content/models','ContentModel');
-
-		if(!empty($item) && self::getXbyID('content',array('id' => $item,'state'=>'1'),false)->id)
-		{
-			$article = JModelLegacy::getInstance('Article', 'ContentModel')->getItem($item);
-			return JRoute::_(ContentHelperRoute::getArticleRoute($item , $article->catid, $article->language));
-		}
-		
-		else return '#';
-	
-	}
-
-
 /*
 	$object = json_decode($this->params->get('search_replace'), true);
 	$res=[];	$i=0;	$j=0;
