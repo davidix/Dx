@@ -751,12 +751,6 @@ class Dx
 		}
 		
 
-
-
-
-
-
-		
 		//Compress All scripts
 		if ($minifiedCode)
 		{
