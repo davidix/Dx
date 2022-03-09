@@ -914,16 +914,18 @@ class Dx
 		{
 			return count($files);
 		}
-        if($fileIndex== -1 && !empty($files)){
+        if($fileIndex== -1 && !empty($files))
+		{
             $res .='<ul class="'.$ul_class.'">';
-            if (is_array($files)){            
-                foreach ($files as $key => $value)
-                    {
-                        $res .= '<li><a href="'.JURI::root().$base.'/'.$value.'" download>'.$value.'</a></li>';
-                    }
-                    
+            if (is_array($files))
+			{            
+				foreach ($files as $key => $value)
+				{
+					$res .= '<li><a href="'.JURI::root().$base.'/'.$value.'" download>'.$value.'</a></li>';
+				}
             }
-            else{
+            else
+			{
               $res .= '<li><a href="'.JURI::root().$base.'/'.$files.'" download>'.$files.'</a></li>';
             }
             $res .='</ul>';
