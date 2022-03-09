@@ -493,8 +493,6 @@ class Dx
 	*
 	* @return self
 	*/
-
-	
 	   
 	public static function setLessVariable($name, $value)
 	{
@@ -502,8 +500,6 @@ class Dx
 
 		return self::getInstance();
 	}
-
-
 	
 	/**
 	* Compile less to css when less modified or css not exist
@@ -931,8 +927,6 @@ class Dx
               $res .= '<li><a href="'.JURI::root().$base.'/'.$files.'" download>'.$files.'</a></li>';
             }
             $res .='</ul>';
-
-            
             return $res;
             
         }
