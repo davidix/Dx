@@ -1392,7 +1392,7 @@ class Dx
 		else return '#';
 	
 	}
-/*
+
 	public static function test_Transaction(){
 
 		$db = JFactory::getDbo();
@@ -1414,7 +1414,7 @@ class Dx
 			//$db->transactionRollback();
 			JErrorPage::render($e);
 		}
-	}*/
+	}
 	/**********      
 	 * Not sure about this functions
 	 * ***************/
