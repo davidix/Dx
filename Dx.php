@@ -1480,9 +1480,6 @@ class Dx
 		echo "[" . date("Y/m/d H:i:s") . "]" . $message . "<br>\n";
 	}
 
-
-
- 
 	public static function html2menu($menuid,$html)
 	{
 		$app		= JFactory::getApplication();
