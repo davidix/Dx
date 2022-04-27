@@ -1471,8 +1471,6 @@ class Dx
 		echo self::d($data) . "<br>\n";
 	}
 	
-
-	
 	public static function dd($data){
 		echo self::dnl($data);
 		exit;
@@ -1537,19 +1535,6 @@ class Dx
 		}
 		return $res;	
 	}
-	
-	
-/*
-	$object = json_decode($this->params->get('search_replace'), true);
-	$res=[];	$i=0;	$j=0;
-	foreach($object as $key => $items)
-	{
-		foreach($items as $item => $val)
-		{
-			$res[$item][$key]=$val;					
-		}
-	}
-	die(json_encode(($res)));
-*/
+
 
 }
