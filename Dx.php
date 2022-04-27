@@ -1471,6 +1471,8 @@ class Dx
 		echo self::d($data) . "<br>\n";
 	}
 	
+
+	
 	public static function dd($data){
 		echo self::dnl($data);
 		exit;
