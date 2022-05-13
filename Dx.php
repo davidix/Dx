@@ -7,8 +7,6 @@
 
 defined('_JEXEC') or die ('resticted aceess');
 
-
-
 jimport('joomla.filesystem.file');
 jimport('joomla.filesystem.folder');
 jimport('joomla.filter.filteroutput');
