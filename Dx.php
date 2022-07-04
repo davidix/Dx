@@ -1518,6 +1518,7 @@ class Dx
 		$res;
 		foreach($obj as $key => $value) 
 		{
+			//output sample => {/*$H=$value['hour']; ---//(!empty($H))?   $res.=' '. $H : $res .='';	*/}
 			foreach($value as $data => $val)
 			{	
 				if(!empty(implode(',', $val))){
