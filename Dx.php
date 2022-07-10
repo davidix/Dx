@@ -239,7 +239,6 @@ class Dx
 
 					if (!empty($position))
 					{
-
 						self::getInstance()->loadFeature[$position][$key]['feature'] = $class->renderFeature();
 						self::getInstance()->loadFeature[$position][$key]['load_pos'] = $load_pos;
 					}
