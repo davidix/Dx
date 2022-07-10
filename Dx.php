@@ -32,8 +32,6 @@ class Dx
 	public function __construct()
 	{
 	}
-
-	
 	//making self object for singleton method
 	final public static function getInstance()
 	{
@@ -63,8 +61,6 @@ class Dx
 		return $doc;
 	}
 
-
-	
 	public static function getParam($key)
 	{
 		$params = JFactory::getApplication()->getTemplate(true)->params;
@@ -99,7 +95,6 @@ class Dx
 		. ($direction ? ' ' . $direction : '')
 		. ($class ? ' ' . $class : '');
 	}
-
 	//Get view
 	public static function view($class = '')
 	{
