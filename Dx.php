@@ -1197,7 +1197,6 @@ class Dx
 			$len = count($data);
 			foreach($data as $row)
 			{
-				
 				$str .= '(';
 				$k = 0;
 				for($i=0;$i<=count($columns);$i++)
@@ -1376,8 +1375,8 @@ class Dx
 	
 	}
 
-	public static function test_Transaction(){
-
+	public static function test_Transaction()
+	{
 		$db = JFactory::getDbo();
 		try
 		{
@@ -1415,8 +1414,8 @@ class Dx
 	}
 
 	
-	private static function d($data){
-		
+	private static function d($data)
+	{
 		if(is_null($data)){
 			$str = "<i>NULL</i>";
 		}elseif($data == ""){
@@ -1467,7 +1466,9 @@ class Dx
 	{
 		$app		= JFactory::getApplication();
         $menu		= $app->getMenu();
+
 		//self::dd($menu->getActive());
+
         if ($app->isSite() && $menu->getActive()->id == $menuid) 
 		{
 			$file = file_get_contents(JUri::base().DIRECTORY_SEPARATOR.$html);
