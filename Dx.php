@@ -1054,7 +1054,6 @@ class Dx
 	/**
 	 * Get Cloumn Lists From Tablename
 	 */
-
 	static function getCloumnsFromTable($table, $db = null) {
 		if (!isset($db)) {
 			$db = Dx::getDBInstance();
@@ -1092,7 +1091,6 @@ class Dx
 	/**
 	 * Show Table Structure
 	 */
-
 	static function getTableStructure($table=null, $db = null) {
 		if (!isset($db)) {
 			$db = Dx::getDBInstance();
@@ -1142,7 +1140,6 @@ class Dx
 		{
 			try
 			{	
-				
 				foreach ($conds as $key => $value)
 				{
 					$operators  = ['<', '>', '='];
