@@ -225,7 +225,6 @@ class Dx
 
 				foreach ($files as $key => $file)
 				{
-
 					include_once $path . '/' . $file;
 					$name = JFile::stripExt($file);
 
