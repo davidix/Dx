@@ -1033,8 +1033,6 @@ class Dx
 		return $db;
 
 	}
-
-
 	
 	/**
 	 * Get Tables From Database
