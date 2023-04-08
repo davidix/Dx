@@ -964,6 +964,35 @@ class Dx
 	}
 
 
+
+	/***
+	 * 
+	 
+public static function SetTemplate($tmpl)
+{
+    $app = JFactory::getApplication();
+    $db = JFactory::getDbo();
+    $query = $db->getQuery(true)
+        ->select('template, params')
+        ->from('#__template_styles')
+        ->where(is_numeric($tmpl) ? 'id = ?' : 'template = ?')
+        ->setLimit(1);
+
+    $db->setQuery($query, 0, 1);
+    $row = $db->loadObject();
+
+    if ($row !== null) {
+        $params = new JRegistry($row->params);
+        $app->setTemplate($row->template, $params);
+    } else {
+        throw new Exception('Template not found');
+    }
+}
+
+
+	 */
+
+
 	/* Database Methodes */
 		/**
 	 * Get Database Default Settings
