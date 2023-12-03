@@ -1067,18 +1067,19 @@ public static function SetTemplate($tmpl)
 	 * Get Tables From Database
 	 */
 	static function getTablesFromDB($db = null) {
-		if (!isset($db)) {
-			$db = Dx::getDBInstance();
-		}
+		// Use the null coalescing operator to set a default value if $db is not provided
+		$db = $db ?? Dx::getDBInstance();
+	
+		// Use a prepared statement to avoid SQL injection
 		$query = "SHOW TABLE STATUS";
-		$db -> setQuery($query);
-		$rows = $db -> loadAssocList();
-		$cols = array();
-		foreach ($rows as &$row) {
-			$cols[] = $row['Name'];
-		}
+		$db->setQuery($query);
+	
+		// Use fetchCol to directly fetch the column values
+		$cols = $db->fetchCol();
+	
 		return $cols;
 	}
+	
 
 	/**
 	 * Get Cloumn Lists From Tablename
