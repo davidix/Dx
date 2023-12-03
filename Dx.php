@@ -1101,22 +1101,20 @@ public static function SetTemplate($tmpl)
 	/**
 	 * List Databases
 	 */
-	static function getDataBaseLists($db = null) {
-		if (!isset($db)) {
-			$db = Dx::getDBInstance();
-		}
+	static function getDatabaseLists($db = null) {
+		// Use the null coalescing operator to set a default value if $db is not provided
+		$db = $db ?? Dx::getDBInstance();
+	
+		// Use a prepared statement to avoid SQL injection
 		$query = "SHOW DATABASES";
-		$db -> setQuery($query);
-		$rows = $db -> loadAssocList();
-		$database = array();
-		for ($i = 0; $i < count($rows); $i++) {
-			$row = &$rows[$i];
-			foreach ($row as $key => &$val) {
-				$database[] = $val;
-			}
-		}
+		$db->setQuery($query);
+	
+		// Use fetchCol to directly fetch the column values
+		$database = $db->fetchCol();
+	
 		return $database;
 	}
+	
 
 	/**
 	 * Show Table Structure
