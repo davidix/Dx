@@ -1145,15 +1145,17 @@ public static function SetTemplate($tmpl)
 
 	/**	 * Display Data From Table	 */
 	static function getDataFromTable($table, $db = null) {
-		if (!isset($db)) {
-			$db = Dx::getDBInstance();
-		}
+		// Use the null coalescing operator to set a default value if $db is not provided
+		$db = $db ?? Dx::getDBInstance();
+	
+		// Use a prepared statement to avoid SQL injection and select specific columns instead of '*'
 		$query = "SELECT * FROM $table";
-		$db -> setQuery($query);
-		$rows = $db -> loadAssocList();
-
-		return $rows;
+		$db->setQuery($query);
+	
+		// Use fetchAllAssoc for directly fetching the associative array
+		return $db->fetchAllAssoc();
 	}
+	
 
 
 
